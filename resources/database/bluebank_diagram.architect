@@ -37,8 +37,7 @@
    </folder>
   </table>
   <table id="TAB8" populated="true" UUID="c87962c2-01ce-4542-99f1-198c7a65aec4" name="CUENTA" objectType="TABLE" physicalName="CUENTA" >
-   <remarks>CUENTAS DE LOS CLIENTES
-</remarks>
+   <remarks>CUENTAS DE LOS CLIENTES</remarks>
    <folder id="FOLTAB81" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL9" populated="true" UUID="f9090c3f-afd6-44da-9bdd-154d56ea9b60" autoIncrement="false" autoIncrementSequenceName="CUENTA_CUE_ID_seq" defaultValue="" name="CUE_ID" nullable="0" physicalName="CUE_ID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>IDENTIFICADOR DEL DATO</remarks>
@@ -53,8 +52,7 @@
      <remarks>SALDO ACTUAL DE LA CUENTA</remarks>
     </column>
     <column id="COL13" populated="true" UUID="6a3a8fd1-4b83-4b7a-b7df-c9561210c771" autoIncrement="false" autoIncrementSequenceName="CLIENTE_CLI_ID_seq" defaultValue="" name="CLI_ID" nullable="0" physicalName="CLI_ID" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>CLIENTE ASOCIADO A LA CUENTA
-</remarks>
+     <remarks>CLIENTE ASOCIADO A LA CUENTA</remarks>
     </column>
     <column id="COL14" populated="true" UUID="2b8059c9-0ea9-42f8-a539-5a72a972d99e" autoIncrement="false" autoIncrementSequenceName="CIUDADES_CIU_ID_seq" defaultValue="" name="CIU_ID" nullable="0" physicalName="CIU_ID" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>CIUDAD ORIGEN D ELA CUENTA</remarks>
@@ -65,7 +63,7 @@
     <folder id="FOLTAB82" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB84" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX15" populated="true" UUID="8e4a1834-67f5-43f4-b56f-90376c780b47" clustered="false" name="CUENTA_FK" physicalName="CUENTA_FK" primaryKeyIndex="true" unique="false" >
+    <index id="IDX15" populated="true" UUID="8e4a1834-67f5-43f4-b56f-90376c780b47" clustered="false" name="CUENTA_FK" physicalName="cuenta_fk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC16" populated="true" UUID="c7903b23-0ba5-4518-b87b-6b69f486f6a7" ascendingOrDescending="UNSPECIFIED" column-ref="COL9" name="CUE_ID" physicalName="CUE_ID" />
     </index>
    </folder>
@@ -97,15 +95,13 @@
     <folder id="FOLTAB172" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB174" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX24" populated="true" UUID="44b9098b-989f-4457-9418-89ba98c4602c" clustered="false" name="MOVIMIENTOS_FK" physicalName="MOVIMIENTOS_FK" primaryKeyIndex="true" unique="false" >
+    <index id="IDX24" populated="true" UUID="44b9098b-989f-4457-9418-89ba98c4602c" clustered="false" name="MOVIMIENTOS_FK" physicalName="movimientos_fk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC25" populated="true" UUID="e79b6b0b-90a3-44a7-870e-65fd47d7ce1e" ascendingOrDescending="UNSPECIFIED" column-ref="COL18" name="MOV_ID" physicalName="MOV_ID" />
     </index>
    </folder>
   </table>
   <table id="TAB26" populated="true" UUID="84ebe406-6c60-4bbe-b778-b8234b9d54d3" name="CIUDADES" objectType="TABLE" physicalName="CIUDADES" >
-   <remarks>CIUDADES DONDE SE REGISTRAN CUENTAS
-
-</remarks>
+   <remarks>CIUDADES DONDE SE REGISTRAN CUENTAS</remarks>
    <folder id="FOLTAB261" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL27" populated="true" UUID="56ff64fb-21fb-4450-88d7-697736ea9d16" autoIncrement="true" autoIncrementSequenceName="CIUDADES_CIU_ID_seq" defaultValue="" name="CIU_ID" nullable="0" physicalName="CIU_ID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>IDENTIFICADOR DEL DATO</remarks>
@@ -122,27 +118,27 @@
     <folder id="FOLTAB262" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB264" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX30" populated="true" UUID="e8a1dcff-24b4-40b7-93cb-5f328d316717" clustered="false" name="CIUDADES_FK" physicalName="CIUDADES_FK" primaryKeyIndex="true" unique="false" >
+    <index id="IDX30" populated="true" UUID="e8a1dcff-24b4-40b7-93cb-5f328d316717" clustered="false" name="CIUDADES_FK" physicalName="ciudades_fk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC31" populated="true" UUID="79e04028-5797-4981-bc57-7e88718c1d47" ascendingOrDescending="UNSPECIFIED" column-ref="COL27" name="CIU_ID" physicalName="CIU_ID" />
     </index>
    </folder>
   </table>
   <relationships>
-   <relationship id="REL32" populated="true" UUID="6a5417f9-7357-4b74-94e5-c500f8c2000c" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="CLI_CUE_FK" physicalName="CLI_CUE_FK" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   <relationship id="REL32" populated="true" UUID="6a5417f9-7357-4b74-94e5-c500f8c2000c" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="CLI_CUE_FK" physicalName="cli_cue_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP33" populated="true" UUID="64daf2ec-de80-4503-a20f-f79a4c559ccb" fk-column-ref="COL13" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL34" populated="true" UUID="9e507974-6b94-4129-a4e1-7363ea200a5a" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="CUENTA_MOVIMIENTOS_fk" physicalName="CUENTA_MOVIMIENTOS_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
+   <relationship id="REL34" populated="true" UUID="9e507974-6b94-4129-a4e1-7363ea200a5a" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="CUENTA_MOVIMIENTOS_fk" physicalName="cuenta_movimientos_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP35" populated="true" UUID="90285c30-e911-4793-a089-52adb59a1a5c" fk-column-ref="COL19" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
    </relationship>
-   <relationship id="REL36" populated="true" UUID="c72ebf8a-d57e-40aa-aa90-97148383e1b7" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="CIU_CUE_FK" physicalName="CIU_CUE_FK" pk-table-ref="TAB26" pkCardinality="2" updateRule="3" >
+   <relationship id="REL36" populated="true" UUID="c72ebf8a-d57e-40aa-aa90-97148383e1b7" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="CIU_CUE_FK" physicalName="ciu_cue_fk" pk-table-ref="TAB26" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP37" populated="true" UUID="c6a25a8a-7390-4baf-9770-7c72437e60c9" fk-column-ref="COL14" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL27" />
    </relationship>
-   <relationship id="REL38" populated="true" UUID="c9115b99-24cd-40b2-95ea-4f8382b0db87" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="CIU_MOV_FK" physicalName="CIU_MOV_FK" pk-table-ref="TAB26" pkCardinality="2" updateRule="3" >
+   <relationship id="REL38" populated="true" UUID="c9115b99-24cd-40b2-95ea-4f8382b0db87" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="CIU_MOV_FK" physicalName="ciu_mov_fk" pk-table-ref="TAB26" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP39" populated="true" UUID="86ae2078-3fb5-421f-ad4f-b715221e4b17" fk-column-ref="COL23" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL27" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="123"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="bluebank"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">

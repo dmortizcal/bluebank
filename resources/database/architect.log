@@ -1,0 +1,145 @@
+0    [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ArchitectUtils  - Log4J configured successfully
+1391 [AWT-EventQueue-0] INFO  ca.sqlpower.sql.PlDotIni  - Beginning to read/merge new pl.ini data
+1531 [AWT-EventQueue-0] INFO  ca.sqlpower.sql.PlDotIni  - Finished reading file.
+1533 [AWT-EventQueue-0] INFO  ca.sqlpower.sql.PlDotIni  - Beginning to read/merge new pl.ini data
+1642 [AWT-EventQueue-0] INFO  ca.sqlpower.sql.PlDotIni  - Finished reading file.
+14529 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+CREATE SEQUENCE bluebank.ciudades_ciu_id_seq
+14538 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+CREATE TABLE bluebank.CIUDADES (
+                CIU_ID INTEGER NOT NULL DEFAULT nextval('bluebank.ciudades_ciu_id_seq'),
+                CIU_NOMBRE VARCHAR(100) NOT NULL,
+                CIU_CODPOST VARCHAR(10),
+                CONSTRAINT ciudades_fk PRIMARY KEY (CIU_ID)
+)
+14539 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON TABLE bluebank.CIUDADES IS 'CIUDADES DONDE SE REGISTRAN CUENTAS'
+14539 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CIUDADES.CIU_ID IS 'IDENTIFICADOR DEL DATO'
+14539 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CIUDADES.CIU_NOMBRE IS 'NOMBRE DE LA CIUDAD'
+14540 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CIUDADES.CIU_CODPOST IS 'CODIGO POSTAL DE LA CIUDAD'
+14540 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+
+ALTER SEQUENCE bluebank.ciudades_ciu_id_seq OWNED BY bluebank.CIUDADES.CIU_ID
+14540 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+CREATE SEQUENCE bluebank.cliente_cli_id_seq
+14541 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+CREATE TABLE bluebank.CLIENTE (
+                CLI_ID INTEGER NOT NULL DEFAULT nextval('bluebank.cliente_cli_id_seq'),
+                CLI_NOMBRE VARCHAR(200) NOT NULL,
+                CLI_TIPO VARCHAR(1) NOT NULL,
+                CLI_TELEFONO NUMERIC(10) NOT NULL,
+                CONSTRAINT cliente_fk PRIMARY KEY (CLI_ID)
+)
+14541 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON TABLE bluebank.CLIENTE IS 'CLIENTES DE BLUE BANK'
+14542 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CLIENTE.CLI_ID IS 'IDENTIFICADOR DEL DATO'
+14542 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CLIENTE.CLI_NOMBRE IS 'NOMBRES CLIENTE'
+14542 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CLIENTE.CLI_TIPO IS 'TIPO DE CLIENTE P:PERSONA E:EMPRESA'
+14543 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CLIENTE.CLI_TELEFONO IS 'TELEFONO DEL CLIENTE'
+14543 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+
+ALTER SEQUENCE bluebank.cliente_cli_id_seq OWNED BY bluebank.CLIENTE.CLI_ID
+14545 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+CREATE TABLE bluebank.CUENTA (
+                CUE_ID INTEGER NOT NULL,
+                CUE_TIPO VARCHAR(1) NOT NULL,
+                CUE_NUMERO VARCHAR(20) NOT NULL,
+                CUE_SALDO NUMERIC NOT NULL,
+                CLI_ID INTEGER NOT NULL,
+                CIU_ID INTEGER NOT NULL,
+                CONSTRAINT cuenta_fk PRIMARY KEY (CUE_ID)
+)
+14546 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON TABLE bluebank.CUENTA IS 'CUENTAS DE LOS CLIENTES'
+14547 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CUENTA.CUE_ID IS 'IDENTIFICADOR DEL DATO'
+14548 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CUENTA.CUE_TIPO IS 'TIPO DE CUENTA A:AHORROS C:CORRIENTE'
+14548 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CUENTA.CUE_NUMERO IS 'NUMERO DE CUENTA'
+14549 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CUENTA.CUE_SALDO IS 'SALDO ACTUAL DE LA CUENTA'
+14549 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CUENTA.CLI_ID IS 'CLIENTE ASOCIADO A LA CUENTA'
+14549 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.CUENTA.CIU_ID IS 'CIUDAD ORIGEN D ELA CUENTA'
+14550 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+
+CREATE SEQUENCE bluebank.movimientos_mov_id_seq
+14552 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+CREATE TABLE bluebank.MOVIMIENTOS (
+                MOV_ID INTEGER NOT NULL DEFAULT nextval('bluebank.movimientos_mov_id_seq'),
+                CUE_ID INTEGER NOT NULL,
+                MOV_FECHA DATE NOT NULL,
+                MOV_TIPO VARCHAR(1) NOT NULL,
+                MOV_VALOR NUMERIC NOT NULL,
+                CIU_ID INTEGER NOT NULL,
+                CONSTRAINT movimientos_fk PRIMARY KEY (MOV_ID)
+)
+14553 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON TABLE bluebank.MOVIMIENTOS IS 'RETIROS Y CONSIGNACIONES DE LOS CLIENTES'
+14553 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.MOVIMIENTOS.MOV_ID IS 'IDENTIFICADOR DEL DATO'
+14553 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.MOVIMIENTOS.CUE_ID IS 'IDENTIFICADOR DEL DATO'
+14554 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.MOVIMIENTOS.MOV_FECHA IS 'FECHA EN QUE SE REALIZO'
+14554 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.MOVIMIENTOS.MOV_TIPO IS 'TIPO DE MOVIMIENTO R:RETIRO C:CONSIGNACION'
+14554 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.MOVIMIENTOS.MOV_VALOR IS 'VALOR DEL MOVIMIENTO'
+14554 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+COMMENT ON COLUMN bluebank.MOVIMIENTOS.CIU_ID IS 'CIUDAD DONDE SE REALIZO'
+14555 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+
+ALTER SEQUENCE bluebank.movimientos_mov_id_seq OWNED BY bluebank.MOVIMIENTOS.MOV_ID
+14557 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+ALTER TABLE bluebank.CUENTA ADD CONSTRAINT ciu_cue_fk
+FOREIGN KEY (CIU_ID)
+REFERENCES bluebank.CIUDADES (CIU_ID)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+14559 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+ALTER TABLE bluebank.MOVIMIENTOS ADD CONSTRAINT ciu_mov_fk
+FOREIGN KEY (CIU_ID)
+REFERENCES bluebank.CIUDADES (CIU_ID)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+14560 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+ALTER TABLE bluebank.CUENTA ADD CONSTRAINT cli_cue_fk
+FOREIGN KEY (CLI_ID)
+REFERENCES bluebank.CLIENTE (CLI_ID)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+14562 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.ddl.GenericDDLGenerator  - endStatement: 
+
+ALTER TABLE bluebank.MOVIMIENTOS ADD CONSTRAINT cuenta_movimientos_fk
+FOREIGN KEY (CUE_ID)
+REFERENCES bluebank.CUENTA (CUE_ID)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+14570 [AWT-EventQueue-0] INFO  ca.sqlpower.architect.swingui.SQLScriptDialog  - The list size is :37
+24308 [Thread-5] ERROR ca.sqlpower.architect.swingui.action.CheckForUpdateAction  - Fail to retrieve current version number!
