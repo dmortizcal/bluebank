@@ -27,7 +27,7 @@ public class CiudadesController {
         return ResponseEntity.ok(ciudad);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(repository.findAll());
     }

@@ -5,6 +5,8 @@
  */
 package com.dmortizcal.bluebank.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -19,7 +21,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * @author mario
@@ -86,7 +87,7 @@ public class Ciudades implements Serializable {
         this.ciuCodpost = ciuCodpost;
     }
 
-    @XmlTransient
+    @JsonIgnore
     public Collection<Cuenta> getCuentaCollection() {
         return cuentaCollection;
     }
@@ -95,7 +96,7 @@ public class Ciudades implements Serializable {
         this.cuentaCollection = cuentaCollection;
     }
 
-    @XmlTransient
+    @JsonIgnore
     public Collection<Movimientos> getMovimientosCollection() {
         return movimientosCollection;
     }

@@ -8,6 +8,15 @@ import { BaseComponent } from './components/base/base.component';
 import { NavbarComponent } from './components/base/navbar/navbar.component';
 import { FooterComponent } from './components/base/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import {ClientsComponent} from './components/clients/clients.component';
+import {FormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NewClientDialog} from "./components/clients/dialogs/new_client_dialog";
+import { ViewAccountsDialogComponent } from './components/clients/dialogs/view-accounts-dialog.component';
+import { NewAccountDialogComponent } from './components/clients/dialogs/new-account-dialog.component';
+import { TransactionsComponent } from './components/transactions/transactions.component';
+import { NewConsignmentComponent } from './components/transactions/dialogs/new-consignment.component';
+import { NewRetirementComponent } from './components/transactions/dialogs/new-retirement.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +24,21 @@ import { HomeComponent } from './components/home/home.component';
     BaseComponent,
     NavbarComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ClientsComponent,
+    NewClientDialog,
+    ViewAccountsDialogComponent,
+    NewAccountDialogComponent,
+    TransactionsComponent,
+    NewConsignmentComponent,
+    NewRetirementComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

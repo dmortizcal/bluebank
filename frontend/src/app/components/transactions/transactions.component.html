@@ -1,0 +1,35 @@
+<div class="container pt-8">
+  <h1>Todas las cuentas</h1>
+  <div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngFor="let cuenta of cuentas">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{cuenta?.cliId?.cliNombre}}</mat-card-title>
+          <mat-card-subtitle>Cuenta N° {{cuenta?.cueNumero}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <h3>Saldo: ${{cuenta?.cueSaldo}}</h3>
+          <p>Tipo: {{typeAccount(cuenta?.cueTipo)}}</p>
+          <p>Ciudad Origen: {{cuenta?.ciuId?.ciuNombre}}</p>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button mat-icon-button color="primary" matTooltip="Extracto">
+            <mat-icon> insert_drive_file</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" matTooltip="Retiro"
+                  (click)="newRetirement(cuenta)" disabled="{{cuenta.cueSaldo ==0}}">
+            <mat-icon>arrow_downward</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" matTooltip="Consignación"
+                  (click)="newConsignment(cuenta)">
+            <mat-icon>arrow_upward</mat-icon>
+          </button>
+        </mat-card-actions>
+
+        <mat-card-footer></mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>

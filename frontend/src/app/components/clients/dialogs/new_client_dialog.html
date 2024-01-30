@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Nuevo cliente</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="data.cliNombre">
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field>
+    <mat-label>Tipo</mat-label>
+    <mat-select [(ngModel)]="data.cliTipo" name="data">
+      <mat-option value="P">Persona</mat-option>
+      <mat-option value="E">Empresa</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field>
+    <mat-label>Telefono</mat-label>
+    <input matInput #tel maxlength="10" [(ngModel)]="data.cliTelefono">
+    <mat-hint align="end">{{tel.value.length}} / 10</mat-hint>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data" color="primary">Guardar</button>
+</div>

@@ -27,7 +27,7 @@ public class ClienteController {
         return ResponseEntity.ok(cliente);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(repository.findAll());
     }

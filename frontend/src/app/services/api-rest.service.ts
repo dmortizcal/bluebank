@@ -24,6 +24,24 @@ export class ApiRestService {
       .catch(this.handleError);
   }
 
+  async post<T>(endpoint: string, data: any): Promise<T> {
+    return this.http.post<T>(endpoint, data)
+      .then(res => res.data)
+      .catch(this.handleError);
+  }
+
+  async put<T>(endpoint: string): Promise<T> {
+    return this.http.put<T>(`${endpoint}`)
+      .then(res => res.data)
+      .catch(this.handleError);
+  }
+
+  async delete<T>(endpoint: string): Promise<T> {
+    return this.http.delete<T>(`${endpoint}`)
+      .then(res => res.data)
+      .catch(this.handleError);
+  }
+
   handleError(error: any): Promise<any> {
     if (error.response) {
       // The backend returned an unsuccessful response code.

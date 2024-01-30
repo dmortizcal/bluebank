@@ -39,7 +39,7 @@
   <table id="TAB8" populated="true" UUID="c87962c2-01ce-4542-99f1-198c7a65aec4" name="CUENTA" objectType="TABLE" physicalName="CUENTA" >
    <remarks>CUENTAS DE LOS CLIENTES</remarks>
    <folder id="FOLTAB81" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL9" populated="true" UUID="f9090c3f-afd6-44da-9bdd-154d56ea9b60" autoIncrement="false" autoIncrementSequenceName="CUENTA_CUE_ID_seq" defaultValue="" name="CUE_ID" nullable="0" physicalName="CUE_ID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL9" populated="true" UUID="f9090c3f-afd6-44da-9bdd-154d56ea9b60" autoIncrement="true" autoIncrementSequenceName="CUENTA_CUE_ID_seq" defaultValue="" name="CUE_ID" nullable="0" physicalName="CUE_ID" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>IDENTIFICADOR DEL DATO</remarks>
     </column>
     <column id="COL10" populated="true" UUID="80073e8c-f59a-410c-b44f-ae2f384f235e" autoIncrement="false" autoIncrementSequenceName="CUENTA_CUE_TIPO_seq" defaultValue="" name="CUE_TIPO" nullable="0" physicalName="CUE_TIPO" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -124,21 +124,21 @@
    </folder>
   </table>
   <relationships>
-   <relationship id="REL32" populated="true" UUID="6a5417f9-7357-4b74-94e5-c500f8c2000c" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="CLI_CUE_FK" physicalName="cli_cue_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   <relationship id="REL32" populated="true" UUID="6a5417f9-7357-4b74-94e5-c500f8c2000c" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="CLI_CUE_FK" physicalName="CLI_CUE_FK" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP33" populated="true" UUID="64daf2ec-de80-4503-a20f-f79a4c559ccb" fk-column-ref="COL13" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL34" populated="true" UUID="9e507974-6b94-4129-a4e1-7363ea200a5a" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="CUENTA_MOVIMIENTOS_fk" physicalName="cuenta_movimientos_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
+   <relationship id="REL34" populated="true" UUID="9e507974-6b94-4129-a4e1-7363ea200a5a" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="CUENTA_MOVIMIENTOS_fk" physicalName="CUENTA_MOVIMIENTOS_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP35" populated="true" UUID="90285c30-e911-4793-a089-52adb59a1a5c" fk-column-ref="COL19" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
    </relationship>
-   <relationship id="REL36" populated="true" UUID="c72ebf8a-d57e-40aa-aa90-97148383e1b7" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="CIU_CUE_FK" physicalName="ciu_cue_fk" pk-table-ref="TAB26" pkCardinality="2" updateRule="3" >
+   <relationship id="REL36" populated="true" UUID="c72ebf8a-d57e-40aa-aa90-97148383e1b7" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="CIU_CUE_FK" physicalName="CIU_CUE_FK" pk-table-ref="TAB26" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP37" populated="true" UUID="c6a25a8a-7390-4baf-9770-7c72437e60c9" fk-column-ref="COL14" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL27" />
    </relationship>
-   <relationship id="REL38" populated="true" UUID="c9115b99-24cd-40b2-95ea-4f8382b0db87" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="CIU_MOV_FK" physicalName="ciu_mov_fk" pk-table-ref="TAB26" pkCardinality="2" updateRule="3" >
+   <relationship id="REL38" populated="true" UUID="c9115b99-24cd-40b2-95ea-4f8382b0db87" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="CIU_MOV_FK" physicalName="CIU_MOV_FK" pk-table-ref="TAB26" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP39" populated="true" UUID="86ae2078-3fb5-421f-ad4f-b715221e4b17" fk-column-ref="COL23" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL27" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="bluebank"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="bluebank"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">

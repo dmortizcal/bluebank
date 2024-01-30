@@ -1,6 +1,8 @@
 package com.dmortizcal.bluebank.controllers;
 
+import com.dmortizcal.bluebank.entitys.Cuenta;
 import com.dmortizcal.bluebank.entitys.Movimientos;
+import com.dmortizcal.bluebank.repositories.CuentaRepository;
 import com.dmortizcal.bluebank.repositories.MovimientosRepository;
 import com.dmortizcal.bluebank.utils.NoEncontrado;
 import com.dmortizcal.bluebank.utils.Respuesta;
@@ -14,9 +16,11 @@ import java.net.URI;
 @RequestMapping("/api/movimientos")
 public class MovimientosController {
     private final MovimientosRepository repository;
+    private final CuentaRepository cuentaRepository;
 
-    public MovimientosController(MovimientosRepository repository) {
+    public MovimientosController(MovimientosRepository repository, CuentaRepository cuentaRepository) {
         this.repository = repository;
+        this.cuentaRepository = cuentaRepository;
     }
 
     @GetMapping("/{id}")
@@ -26,7 +30,7 @@ public class MovimientosController {
         return ResponseEntity.ok(movimientos);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(repository.findAll());
     }
@@ -63,5 +67,37 @@ public class MovimientosController {
         repository.deleteById(id);
 
         return ResponseEntity.ok().body(Respuesta.mensage("El item ha sido borrado"));
+    }
+
+    @PostMapping("/retiro")
+    public ResponseEntity<?> saveRetiro(@RequestBody Movimientos movimiento) {
+        Cuenta cuenta = movimiento.getCueId();
+        cuenta.setCueSaldo(cuenta.getCueSaldo().subtract(movimiento.getMovValor()));
+        cuenta = cuentaRepository.save(cuenta);
+
+        movimiento = repository.save(movimiento);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(movimiento.getCiuId()).toUri();
+
+        return ResponseEntity
+                .created(location)
+                .body(movimiento);
+    }
+
+    @PostMapping("/consignacion")
+    public ResponseEntity<?> saveConsignacion(@RequestBody Movimientos movimiento) {
+        Cuenta cuenta = movimiento.getCueId();
+        cuenta.setCueSaldo(cuenta.getCueSaldo().add(movimiento.getMovValor()));
+        cuenta = cuentaRepository.save(cuenta);
+
+        movimiento = repository.save(movimiento);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(movimiento.getCiuId()).toUri();
+
+        return ResponseEntity
+                .created(location)
+                .body(movimiento);
     }
 }

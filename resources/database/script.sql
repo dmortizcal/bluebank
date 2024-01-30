@@ -49,9 +49,11 @@ ON COLUMN bluebank.CLIENTE.CLI_TELEFONO IS 'TELEFONO DEL CLIENTE';
 
 ALTER SEQUENCE bluebank.cliente_cli_id_seq OWNED BY bluebank.CLIENTE.CLI_ID;
 
+CREATE SEQUENCE bluebank.cuenta_cue_id_seq;
+
 CREATE TABLE bluebank.CUENTA
 (
-    CUE_ID     INTEGER     NOT NULL,
+    CUE_ID     INTEGER     NOT NULL DEFAULT nextval('bluebank.cuenta_cue_id_seq'),
     CUE_TIPO   VARCHAR(1)  NOT NULL,
     CUE_NUMERO VARCHAR(20) NOT NULL,
     CUE_SALDO  NUMERIC     NOT NULL,
@@ -74,6 +76,8 @@ ON COLUMN bluebank.CUENTA.CLI_ID IS 'CLIENTE ASOCIADO A LA CUENTA';
 COMMENT
 ON COLUMN bluebank.CUENTA.CIU_ID IS 'CIUDAD ORIGEN D ELA CUENTA';
 
+
+ALTER SEQUENCE bluebank.cuenta_cue_id_seq OWNED BY bluebank.CUENTA.CUE_ID;
 
 CREATE SEQUENCE bluebank.movimientos_mov_id_seq;
 

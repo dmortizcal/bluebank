@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Consignacion</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Ciudad</mat-label>
+    <mat-select [(ngModel)]="movimiento.ciuId">
+      <mat-option *ngFor="let ciudad of listCiudad" [value]="ciudad">
+        {{ciudad.ciuNombre}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field>
+    <mat-label>Valor</mat-label>
+    <input matInput [(ngModel)]="movimiento.movValor">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cerrar</button>
+  <button mat-button (click)="save()" color="primary">Guardar</button>
+</div>
+
