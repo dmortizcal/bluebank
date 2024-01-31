@@ -30,21 +30,12 @@ public class MovimientosController {
         return ResponseEntity.ok(movimientos);
     }
 
-    @GetMapping("")
-    public ResponseEntity<?> getAll() {
-        return ResponseEntity.ok(repository.findAll());
-    }
+    @GetMapping("/allByAccount/{id}")
+    public ResponseEntity<?> getAll(@PathVariable Long id) {
+        Cuenta cuenta = cuentaRepository.findById(id)
+                .orElseThrow(() -> new NoEncontrado("Cuenta", String.valueOf(id)));
 
-    @PostMapping("")
-    public ResponseEntity<?> save(@RequestBody Movimientos movimientos) {
-        movimientos = repository.save(movimientos);
-
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(movimientos.getCiuId()).toUri();
-
-        return ResponseEntity
-                .created(location)
-                .body(movimientos);
+        return ResponseEntity.ok(repository.findAllByCueIdOrderByMovFechaDesc(cuenta));
     }
 
     @PutMapping("/{id}")
@@ -55,7 +46,7 @@ public class MovimientosController {
         }).orElseThrow(() -> new NoEncontrado("Movimientos ", String.valueOf(id)));
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(movimientos.getCiuId()).toUri();
+                .buildAndExpand(movimientos.getMovId()).toUri();
 
         return ResponseEntity
                 .created(location)

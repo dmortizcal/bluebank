@@ -33,19 +33,13 @@ export class NewRetirementComponent implements OnInit {
       console.log(error)
     })
   }
-  save() {
-    this.apiRest.post('movimientos/retiro', this.movimiento).then(
-      (data: any) => {
-        this.dialogRef.close();
-      }).catch(err => {
-      console.log(err)
-    }).catch(error => {
-      console.log(error)
-    })
-  }
 
   cancel() {
     this.dialogRef.close();
+  }
+
+  disabled() {
+    return (this.data?.cueSaldo != undefined && this.data?.cueSaldo) < (this.movimiento?.movValor != undefined && this.movimiento?.movValor);
   }
 
   ngOnInit(): void {

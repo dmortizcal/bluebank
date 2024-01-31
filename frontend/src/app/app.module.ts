@@ -17,6 +17,7 @@ import { NewAccountDialogComponent } from './components/clients/dialogs/new-acco
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { NewConsignmentComponent } from './components/transactions/dialogs/new-consignment.component';
 import { NewRetirementComponent } from './components/transactions/dialogs/new-retirement.component';
+import { TransactionsDetailsComponent } from './components/transactions/dialogs/transactions-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NewRetirementComponent } from './components/transactions/dialogs/new-re
     NewAccountDialogComponent,
     TransactionsComponent,
     NewConsignmentComponent,
-    NewRetirementComponent
+    NewRetirementComponent,
+    TransactionsDetailsComponent
   ],
   imports: [
     BrowserModule,

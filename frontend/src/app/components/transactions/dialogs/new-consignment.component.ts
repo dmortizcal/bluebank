@@ -34,25 +34,11 @@ export class NewConsignmentComponent implements OnInit {
     })
   }
 
-  save() {
-    this.apiRest.post('movimientos/consignacion', this.movimiento).then(
-      (data: any) => {
-        this.dialogRef.close();
-      }).catch(err => {
-      console.log(err)
-    }).catch(error => {
-      console.log(error)
-    })
-  }
-
-
   cancel() {
     this.dialogRef.close();
   }
 
-  ngOnInit()
-    :
-    void {
+  ngOnInit(): void {
     this.listCities()
   }
 

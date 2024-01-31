@@ -18,6 +18,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="cancel()">Cerrar</button>
-  <button mat-button (click)="save()" color="primary">Guardar</button>
+  <button mat-button [mat-dialog-close]="movimiento" color="primary">Guardar</button>
 </div>
 

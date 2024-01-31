@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Consignacion</h1>
+<h1 mat-dialog-title>Retiro</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Ciudad</mat-label>
@@ -18,6 +18,8 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="cancel()">Cerrar</button>
-  <button mat-button (click)="save()" color="primary">Guardar</button>
+  <button mat-button [mat-dialog-close]="movimiento" color="primary"
+          disabled="{{disabled()}}">Guardar
+  </button>
 </div>
 
